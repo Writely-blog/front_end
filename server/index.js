@@ -3,7 +3,9 @@ import 'express-async-errors';
 import express from 'express';
 import errorHandlerMiddleware from './middleware/error-handler.js';
 import notFound from './middleware/not-found.js';
+import checkAuth from './middleware/checkAuth.js';
 import authRoutes from './routes/auth.routes.js';
+import postsRoutes from './routes/posts.routes.js';
 dotenv.config();
 
 const app = express();
@@ -13,6 +15,7 @@ app.use(express.json()); // support json encoded bodies
 
 //routes
 app.use('/auth', authRoutes);
+app.use('/posts', checkAuth, postsRoutes);
 
 //error handlers
 app.use(errorHandlerMiddleware);
