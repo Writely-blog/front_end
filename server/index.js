@@ -1,9 +1,22 @@
 import * as dotenv from 'dotenv';
+import 'express-async-errors';
 import express from 'express';
+import errorHandlerMiddleware from './middleware/error-handler.js';
+import notFound from './middleware/not-found.js';
+import authRoutes from './routes/auth.routes.js';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3030;
+
+app.use(express.json()); // support json encoded bodies
+
+//routes
+app.use('/auth', authRoutes);
+
+//error handlers
+app.use(errorHandlerMiddleware);
+app.use(notFound);
 
 const start = () => {
   try {
@@ -12,3 +25,5 @@ const start = () => {
     console.log(err);
   }
 };
+
+start();
