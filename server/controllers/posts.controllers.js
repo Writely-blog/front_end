@@ -32,6 +32,10 @@ export const onePost = async (req, res) => {
 
   const post = await db.query('SELECT * FROM posts WHERE id = $1', [id]);
 
+  if (post.rowCount === 0) {
+    throw new CustomAPIError('Post not found', StatusCodes.NOT_FOUND);
+  }
+
   res.json({ post: post.rows });
 };
 export const editPost = async (req, res) => {
@@ -40,6 +44,12 @@ export const editPost = async (req, res) => {
   const { title, context } = req.body;
 
   const post = await db.query('SELECT user_id FROM posts WHERE id = $1', [id]);
+
+  console.log(post);
+
+  if (post.rowCount === 0) {
+    throw new CustomAPIError('Post not found', StatusCodes.NOT_FOUND);
+  }
 
   // checks if the user is the owner of the post
   if (post.rows[0].user_id !== Number(userId)) {
@@ -58,6 +68,10 @@ export const deletePost = async (req, res) => {
   const { id } = req.params;
 
   const post = await db.query('SELECT user_id FROM posts WHERE id = $1', [id]);
+
+  if (post.rowCount === 0) {
+    throw new CustomAPIError('Post not found', StatusCodes.NOT_FOUND);
+  }
 
   // checks if the user is the owner of the post
   if (post.rows[0].user_id !== Number(userId)) {
