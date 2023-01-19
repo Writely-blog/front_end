@@ -5,9 +5,9 @@ import CustomAPIError from '../errors/custom-error.js';
 import { StatusCodes } from 'http-status-codes';
 
 export const register = async (req, res) => {
-  const { name, email, password, password2 } = req.body;
+  const { user_name, email, password, password2 } = req.body;
 
-  if (!name || !email || !password || !password2) {
+  if (!user_name || !email || !password || !password2) {
     throw new CustomAPIError('Plese enter all fields', StatusCodes.BAD_REQUEST);
   }
 
@@ -36,8 +36,8 @@ export const register = async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   const user = await db.query(
-    'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING email',
-    [name, email, hashedPassword]
+    'INSERT INTO users (user_name, email, password) VALUES ($1, $2, $3) RETURNING email',
+    [user_name, email, hashedPassword]
   );
 
   const token = jwt.sign(
