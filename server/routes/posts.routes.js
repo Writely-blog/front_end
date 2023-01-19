@@ -13,7 +13,7 @@ const router = Router();
 
 router.route('/').get(allPosts).post(createPost);
 
-router.route('/:user_id').get(allMyPosts);
+router.route('/mine').get(allMyPosts);
 
 router.route('/:id').get(onePost).patch(editPost).delete(deletePost);
 
