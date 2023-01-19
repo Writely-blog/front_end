@@ -16,9 +16,9 @@ export default (req, res, next) => {
       next();
     } catch (err) {
       console.log(err);
-      throw new CustomAPIError('Not access', StatusCodes.FORBIDDEN);
+      throw new CustomAPIError('No access', StatusCodes.FORBIDDEN);
     }
   } else {
-    throw new CustomAPIError('Not access', StatusCodes.FORBIDDEN);
+    throw new CustomAPIError('No access', StatusCodes.FORBIDDEN);
   }
 };
