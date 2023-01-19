@@ -1,7 +1,8 @@
 import db from '../db/dbConfig.js';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import CustomAPIError from '../errors/custom-error.js';
 import { StatusCodes } from 'http-status-codes';
-import bcrypt from 'bcrypt';
 
 export const register = async (req, res) => {
   const { name, email, password, password2 } = req.body;
@@ -39,12 +40,15 @@ export const register = async (req, res) => {
     [name, email, hashedPassword]
   );
 
-  // some JWT token for future functionality
-  const JWT_token = 12345;
+  const token = jwt.sign(
+    {
+      id: user.rows[0].id,
+    },
+    process.env.JWT_SECRET,
+    { expiresIn: '30d' }
+  );
 
-  res
-    .status(StatusCodes.CREATED)
-    .json({ email: user.rows[0].email, JWT_token });
+  res.status(StatusCodes.CREATED).json({ email: user.rows[0].email, token });
 };
 
 export const login = async (req, res) => {
@@ -69,8 +73,13 @@ export const login = async (req, res) => {
     );
   }
 
-  // some JWT token for future functionality
-  const JWT_token = 12345;
+  const token = jwt.sign(
+    {
+      id: user.rows[0].id,
+    },
+    process.env.JWT_SECRET,
+    { expiresIn: '30d' }
+  );
 
-  res.status(StatusCodes.OK).json({ email: user.rows[0].email, JWT_token });
+  res.status(StatusCodes.OK).json({ email: user.rows[0].email, token });
 };
