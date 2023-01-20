@@ -1,0 +1,103 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: scroll;
+  color: black;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  border-bottom: 4px solid black;
+  /* padding-top: 1rem; */
+  margin: 1rem;
+  width: 90%;
+  min-height: 5rem;
+}
+
+.title p {
+  margin: 1.1rem;
+  color: rgb(19, 17, 17);
+}
+.form-conteiner {
+  border: 2px solid black;
+  border-radius: 30px;
+  min-width: 40rem;
+  min-height: 35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+}
+
+.form-title {
+  border-bottom: 2px solid black;
+  width: 100%;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8rem;
+}
+
+.form-title p {
+  margin: 0rem;
+  margin-top: 0.5rem;
+}
+.form-body {
+  width: 100%;
+  height: 100%;
+}
+.form-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.form-inputs input {
+  outline: none;
+  font-size: 2.5rem;
+  border: none;
+  border-bottom: 3px solid black;
+  margin-bottom: 1rem;
+  background: transparent;
+  padding: 0.5rem 0;
+}
+.form-inputs input::placeholder {
+  font-size: 1.5rem;
+}
+.form-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-btn input {
+  background-color: rgb(188, 108, 253);
+  outline: none;
+  font-size: 1.5rem;
+  padding: 0.75rem 9rem;
+  border: none;
+  border-radius: 5px;
+  color: black;
+}
+
+.form-footer {
+  border-top: 2px solid black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8rem;
+  font-size: 1.75rem;
+}
