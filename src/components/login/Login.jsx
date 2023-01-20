@@ -1,8 +1,11 @@
 import React from 'react';
 import './Login.css';
 import { fetchLogin } from '../../fetchFunctions';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const data = {
     email: 'test1@gmail.com',
     password: 'password123',
@@ -45,7 +48,8 @@ const Login = () => {
           </form>
         </div>
         <div className='form-footer'>
-          <p>Not a member? ...</p>
+          <p>Not a member?</p>
+          <a onClick={() => navigate('/register')}>Signup</a>
         </div>
       </div>
     </div>
