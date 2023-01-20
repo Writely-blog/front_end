@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 import TheContextProvider from './TheContext';
 import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 import Register from './components/register/Register';
