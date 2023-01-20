@@ -3,7 +3,8 @@ import { createContext } from 'react';
 export const TheContext = createContext();
 
 const TheContextProvider = ({ children }) => {
-  return <TheContext.Provider>{children}</TheContext.Provider>;
+  const a = 1;
+  return <TheContext.Provider value={a}>{children}</TheContext.Provider>;
 };
 
 export default TheContextProvider;
