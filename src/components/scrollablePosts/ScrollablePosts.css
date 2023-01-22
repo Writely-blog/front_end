@@ -5,11 +5,9 @@
   width: 100%;
   height: calc(91vh - 7rem);
   margin-top: 2rem;
-  border: 1px solid red;
 }
 
 .posts-container {
-  border: 1px solid red;
   width: 100%;
   height: 100%;
   display: flex;
