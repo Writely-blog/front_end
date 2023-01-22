@@ -6,7 +6,7 @@ import { FcLike } from 'react-icons/fc';
 
 const OnePost = ({ title, context, likes_count, user_id }) => {
   console.log(title, context, likes_count, user_id);
-  const is = false;
+  const is = true;
   return (
     <div className='onepost-container'>
       <div className='onepost-left-side'>
@@ -31,7 +31,7 @@ const OnePost = ({ title, context, likes_count, user_id }) => {
             ) : (
               <>
                 <div className='onepost-right-btn'>
-                  <FcLike color='white' size='50px' />
+                  <FcLike color='white' size='40px' />
                 </div>
               </>
             )}

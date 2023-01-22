@@ -1,5 +1,5 @@
 .onepost-container {
-  width: 90%;
+  width: 83%;
   /* height: 25rem; */
   border: 2.5px solid black;
   border-radius: 35px;
@@ -132,5 +132,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 6rem;
+  padding-right: 2rem;
 }
