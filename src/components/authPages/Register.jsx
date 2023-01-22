@@ -1,9 +1,9 @@
 import React from 'react';
-import './Login.css';
+import './Login-Register.css';
 import { fetchLogin } from '../../fetchFunctions';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
   const navigate = useNavigate();
 
   const data = {
@@ -18,11 +18,20 @@ const Login = () => {
       </div>
       <div className='form-conteiner'>
         <div className='form-title'>
-          <p>LOGIN</p>
+          <p>SIGNUP</p>
         </div>
         <div className='form-body'>
           <form className='form-container'>
             <div className='form-inputs'>
+              <div>
+                <input
+                  type='username'
+                  id='username'
+                  name='username'
+                  placeholder='Username'
+                  required
+                />
+              </div>
               <div>
                 <input
                   type='email'
@@ -41,19 +50,30 @@ const Login = () => {
                   required
                 />
               </div>
+              <div>
+                <input
+                  type='password'
+                  id='password2'
+                  name='password2'
+                  placeholder='Repiat Password'
+                  required
+                />
+              </div>
             </div>
             <div className='form-btn'>
-              <input type='submit' value='Login' />
+              <input type='submit' value='Signup' />
             </div>
           </form>
         </div>
         <div className='form-footer'>
-          <p>Not a member?</p>
-          <a onClick={() => navigate('/register')}>Signup</a>
+          <p>Already registered?</p>
+          <a onClick={() => navigate('/login')} className='signup-link'>
+            Login
+          </a>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import TheContextProvider from './TheContext';
 import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
-import Register from './components/register/Register';
-import Login from './components/login/Login';
+import Register from './components/authPages/Register';
+import Login from './components/authPages/Login';
 import AllPosts from './components/allPosts/AllPosts';
 import MyPosts from './components/myPosts/MyPosts';
 
