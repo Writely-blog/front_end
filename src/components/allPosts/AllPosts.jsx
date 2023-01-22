@@ -1,8 +1,11 @@
 import React from 'react';
+import NavBar from '../navBar/NavBar';
+import './AllPosts.css';
 
 const AllPosts = () => {
   return (
-    <div>
+    <div className='main-container'>
+      <NavBar />
       <h1>allPosts</h1>
     </div>
   );
