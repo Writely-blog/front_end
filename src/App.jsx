@@ -5,10 +5,11 @@ import Register from './components/authPages/Register';
 import Login from './components/authPages/Login';
 import AllPosts from './components/allPosts/AllPosts';
 import MyPosts from './components/myPosts/MyPosts';
+import { isAuthenticated } from '../src/auth';
 
 function App() {
   const ProtectedRoute = (props) => {
-    return false ? props.children : <Navigate to='/login' />;
+    return isAuthenticated() ? props.children : <Navigate to='/login' />;
   };
 
   return (
