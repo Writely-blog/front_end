@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login-Register.css';
-import { fetchLogin } from '../../fetchFunctions';
+import { fetchRegister } from '../../fetchFunctions';
 import { useNavigate } from 'react-router-dom';
+import { setSession } from '../../auth';
 
 const Register = () => {
   const navigate = useNavigate();
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [password2, setPassword2] = useState('');
+  const [errorMessage, setErrorMesssage] = useState('');
 
-  const data = {
-    email: 'test1@gmail.com',
-    password: 'password123',
+  const handleRegister = async (userName, email, password, password2) => {
+    try {
+      const res = await fetchRegister({
+        user_name: userName,
+        email,
+        password,
+        password2,
+      });
+      console.log(res);
+      if (res?.data?.hasOwnProperty('email', 'token')) {
+        setSession(res.data.token);
+        navigate('/myPosts');
+      } else {
+        setErrorMesssage(res?.response?.data?.msg);
+      }
+    } catch (err) {
+      setErrorMesssage(err?.response?.data?.msg);
+    }
   };
 
   return (
@@ -16,12 +37,15 @@ const Register = () => {
       <div className='title'>
         <p>WRITELY</p>
       </div>
+      <div className='error-container'>
+        {errorMessage && <p>{errorMessage}</p>}
+      </div>
       <div className='form-conteiner'>
         <div className='form-title'>
           <p>SIGNUP</p>
         </div>
         <div className='form-body'>
-          <form className='form-container'>
+          <div className='form-container'>
             <div className='form-inputs'>
               <div>
                 <input
@@ -29,6 +53,7 @@ const Register = () => {
                   id='username'
                   name='username'
                   placeholder='Username'
+                  onChange={(event) => setUserName(event.target.value)}
                   required
                 />
               </div>
@@ -38,6 +63,7 @@ const Register = () => {
                   id='email'
                   name='email'
                   placeholder='Email'
+                  onChange={(event) => setEmail(event.target.value)}
                   required
                 />
               </div>
@@ -47,6 +73,7 @@ const Register = () => {
                   id='password'
                   name='password'
                   placeholder='Password'
+                  onChange={(event) => setPassword(event.target.value)}
                   required
                 />
               </div>
@@ -56,14 +83,21 @@ const Register = () => {
                   id='password2'
                   name='password2'
                   placeholder='Repiat Password'
+                  onChange={(event) => setPassword2(event.target.value)}
                   required
                 />
               </div>
             </div>
             <div className='form-btn'>
-              <input type='submit' value='Signup' />
+              <input
+                type='submit'
+                value='Signup'
+                onClick={() =>
+                  handleRegister(userName, email, password, password2)
+                }
+              />
             </div>
-          </form>
+          </div>
         </div>
         <div className='form-footer'>
           <p>Already registered?</p>

@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login-Register.css';
 import { fetchLogin } from '../../fetchFunctions';
 import { useNavigate } from 'react-router-dom';
+import { setSession } from '../../auth';
 
 const Login = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMesssage] = useState('');
 
-  const data = {
-    email: 'test1@gmail.com',
-    password: 'password123',
+  const handleLogin = async (email, password) => {
+    try {
+      const res = await fetchLogin({ email, password });
+      if (res.data.hasOwnProperty('email', 'token')) {
+        setSession(res.data.token);
+        navigate('/myPosts');
+      } else {
+        setErrorMesssage(res.response.data.msg);
+      }
+    } catch (err) {
+      setErrorMesssage(err.response.data.msg);
+    }
   };
 
   return (
@@ -16,12 +29,15 @@ const Login = () => {
       <div className='title'>
         <p>WRITELY</p>
       </div>
+      <div className='error-container'>
+        {errorMessage && <p>{errorMessage}</p>}
+      </div>
       <div className='form-conteiner'>
         <div className='form-title'>
           <p>LOGIN</p>
         </div>
         <div className='form-body'>
-          <form className='form-container'>
+          <div className='form-container'>
             <div className='form-inputs'>
               <div>
                 <input
@@ -29,6 +45,7 @@ const Login = () => {
                   id='email'
                   name='email'
                   placeholder='Email'
+                  onChange={(event) => setEmail(event.target.value)}
                   required
                 />
               </div>
@@ -38,14 +55,19 @@ const Login = () => {
                   id='password'
                   name='password'
                   placeholder='Password'
+                  onChange={(event) => setPassword(event.target.value)}
                   required
                 />
               </div>
             </div>
             <div className='form-btn'>
-              <input type='submit' value='Login' />
+              <input
+                type='submit'
+                value='Login'
+                onClick={() => handleLogin(email, password)}
+              />
             </div>
-          </form>
+          </div>
         </div>
         <div className='form-footer'>
           <p>Not a member?</p>
