@@ -35,7 +35,7 @@ const Register = () => {
   return (
     <div className='container'>
       <div className='title'>
-        <p>WRITELY</p>
+        <p onClick={() => navigate('/')}>WRITELY</p>
       </div>
       <div className='error-container'>
         {errorMessage && <p>{errorMessage}</p>}

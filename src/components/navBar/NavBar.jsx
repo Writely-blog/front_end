@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <div className='navbar-container'>
       <div className='nav-left-side'>
-        <p>WRITELY</p>
+        <p onClick={() => navigate('/')}>WRITELY</p>
       </div>
       <div className='nav-right-side'>
         <p onClick={() => navigate('/')}>ALL POSTS</p>
