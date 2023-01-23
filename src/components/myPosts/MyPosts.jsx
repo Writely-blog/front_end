@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../navBar/NavBar';
 import OnePost from '../onePost/OnePost';
 import './MyPosts.css';
 import { GrAdd } from 'react-icons/gr';
+import ScrollablePosts from '../scrollablePosts/ScrollablePosts';
+import { fetchMyPosts } from '../../fetchFunctions';
 
 const MyPosts = () => {
+  const [data, setData] = useState([]);
+
+  const fetchAndSetMyPosts = async () => {
+    try {
+      const fetchData = await fetchMyPosts();
+      if (fetchData?.statusText === 'OK') {
+        setData(fetchData.data.posts);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchAndSetMyPosts();
+  }, []);
+
   return (
     <div className='main-container'>
       <NavBar />
@@ -16,7 +35,7 @@ const MyPosts = () => {
           <GrAdd size={40} />
         </div>
       </div>
-      <OnePost />
+      <ScrollablePosts data={data} isEditVersion={true} />
     </div>
   );
 };

@@ -4,7 +4,14 @@ import OnePost from '../onePost/OnePost';
 
 const ScrollablePosts = ({ data, isEditVersion }) => {
   return (
-    <div className='scrollable-container'>
+    // <div className='scrollable-container'>
+    <div
+      className={
+        isEditVersion
+          ? 'scrollable-container editVersion'
+          : 'scrollable-container'
+      }
+    >
       <div id='scrollable' className='posts-container'>
         {data?.map((post) => {
           return (

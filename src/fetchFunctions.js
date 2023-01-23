@@ -21,3 +21,9 @@ export const fetchAllPosts = async () => {
     method: 'GET',
   });
 };
+
+export const fetchMyPosts = async () => {
+  return await authFetch('/posts/mine', {
+    method: 'GET',
+  });
+};
