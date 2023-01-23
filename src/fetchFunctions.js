@@ -15,3 +15,9 @@ export const fetchRegister = async (input_data) => {
     headers: { 'Content-Type': 'application/json' },
   });
 };
+
+export const fetchAllPosts = async () => {
+  return await authFetch('/posts', {
+    method: 'GET',
+  });
+};

@@ -4,9 +4,7 @@ import { FiEdit } from 'react-icons/fi';
 import { MdDeleteForever } from 'react-icons/md';
 import { FcLike } from 'react-icons/fc';
 
-const OnePost = ({ title, context, likes_count, user_id }) => {
-  console.log(title, context, likes_count, user_id);
-  const is = true;
+const OnePost = ({ title, context, likes_count, user_id, isEditVersion }) => {
   return (
     <div className='onepost-container'>
       <div className='onepost-left-side'>
@@ -19,7 +17,7 @@ const OnePost = ({ title, context, likes_count, user_id }) => {
             <p>{title}</p>
           </div>
           <div className='onepost-btns'>
-            {is ? (
+            {isEditVersion ? (
               <>
                 <div className='onepost-left-btn'>
                   <FiEdit />
