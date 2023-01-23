@@ -1,7 +1,7 @@
 .onepost-container {
   width: 83%;
   /* height: 25rem; */
-  border: 2.5px solid black;
+  border: 2.5px solid var(--color-black);
   border-radius: 35px;
   display: flex;
   flex-direction: row;
@@ -10,15 +10,11 @@
   margin-bottom: 2rem;
 }
 
-* p {
-  margin: 0;
-}
-
 /* JUST FOR BORDERS */
 
 .onepost-left-side {
   min-width: 3rem;
-  border-right: 2.5px solid black;
+  border-right: 2.5px solid var(--color-black);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,11 +22,11 @@
 
 .onepost-left-side-top {
   height: 4rem;
-  border-bottom: 2.5px solid black;
+  border-bottom: 2.5px solid var(--color-black);
 }
 .onepost-left-side-bottom {
   height: 4rem;
-  border-top: 2.5px solid black;
+  border-top: 2.5px solid var(--color-black);
 }
 /* JUST FOR BORDERS */
 
@@ -44,7 +40,7 @@
 }
 
 .onepost-title-bar {
-  border-bottom: 2.5px solid black;
+  border-bottom: 2.5px solid var(--color-black);
   width: 100%;
   height: 4rem;
   display: flex;
@@ -74,7 +70,7 @@
 .onepost-left-btn {
   height: 100%;
   min-width: 5rem;
-  border-left: 2.5px solid black;
+  border-left: 2.5px solid var(--color-black);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,7 +80,7 @@
 .onepost-right-btn {
   height: 100%;
   min-width: 5rem;
-  border-left: 2.5px solid black;
+  border-left: 2.5px solid var(--color-black);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,7 +92,7 @@
 }
 
 .onepost-footer {
-  border-top: 2.5px solid black;
+  border-top: 2.5px solid var(--color-black);
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -114,7 +110,7 @@
 .onepost-username {
   height: 100%;
   padding: 0 2rem;
-  border-right: 2.5px solid black;
+  border-right: 2.5px solid var(--color-black);
   display: flex;
   align-items: center;
   justify-content: center;
