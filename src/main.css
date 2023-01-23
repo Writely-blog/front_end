@@ -52,10 +52,13 @@ body {
 }
 
 .error-container {
-  color: var(--color-red);
   font-size: 1.5rem;
   text-transform: uppercase;
+}
+
+.error-container p {
   font-weight: bold;
+  color: var(--color-red);
 }
 
 .btn-animated {

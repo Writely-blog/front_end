@@ -57,7 +57,7 @@ const CreateOrEditPost = ({ create }) => {
       }
     } catch (error) {
       if (error.hasOwnProperty('response')) {
-        setErrorMesssage(
+        return setErrorMesssage(
           error.response.data.msg
             ? error.response.data.msg
             : error.response.data
@@ -80,7 +80,7 @@ const CreateOrEditPost = ({ create }) => {
       }
     } catch (error) {
       if (error.hasOwnProperty('response')) {
-        setErrorMesssage(
+        return setErrorMesssage(
           error.response.data.msg
             ? error.response.data.msg
             : error.response.data
