@@ -12,6 +12,13 @@
   line-height: 24px;
   font-weight: 400;
 
+  --color-black: #0f0f0f;
+  --color-white: #f7f7f7;
+  --color-grey: #5b5b5a;
+  --color-purple: #d8c4f7;
+  --color-blue: #6db7fb;
+  --color-red: #d80505;
+
   color-scheme: light dark;
 
   font-synthesis: none;
@@ -19,6 +26,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+* p {
+  color: var(--color-black);
+  margin: 0;
 }
 
 body {
@@ -40,7 +52,20 @@ body {
 }
 
 .error-container {
-  color: red;
+  color: var(--color-red);
   font-size: 1.5rem;
   text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn-animated {
+  cursor: pointer;
+}
+
+.btn-animated:hover {
+  color: var(--color-blue);
+}
+
+.btn-animated:active {
+  transform: translateY(2px);
 }

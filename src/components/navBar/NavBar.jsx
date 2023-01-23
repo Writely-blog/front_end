@@ -9,28 +9,36 @@ const NavBar = () => {
   return (
     <div className='navbar-container'>
       <div className='nav-left-side'>
-        <p onClick={() => navigate('/')}>WRITELY</p>
+        <p onClick={() => navigate('/')} className='btn-animated'>
+          WRITELY
+        </p>
       </div>
       <div className='nav-right-side'>
-        <p onClick={() => navigate('/')}>ALL POSTS</p>
-        <p onClick={() => navigate('/myPosts')}>MY POSTS</p>
+        <p className='btn-animated' onClick={() => navigate('/')}>
+          ALL POSTS
+        </p>
+        <p className='btn-animated' onClick={() => navigate('/myPosts')}>
+          MY POSTS
+        </p>
         {isAuthenticated() ? (
-          <>
-            <p
-              onClick={() => {
-                endSession();
-                navigate('/login');
-              }}
-            >
-              LOGOUT
-            </p>
+          <div
+            className='btn-login-logout btn-animated'
+            onClick={() => {
+              endSession();
+              navigate('/login');
+            }}
+          >
+            LOGOUT
             <BiLogOut size={35} />
-          </>
+          </div>
         ) : (
-          <>
-            <p onClick={() => navigate('/login')}>LOGIN</p>
+          <div
+            className='btn-login-logout btn-animated'
+            onClick={() => navigate('/login')}
+          >
+            LOGIN
             <BiLogIn size={35} />
-          </>
+          </div>
         )}
       </div>
     </div>

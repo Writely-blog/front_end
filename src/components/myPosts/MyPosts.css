@@ -4,12 +4,9 @@
   justify-content: center;
   align-items: center;
 }
-* p {
-  margin: 0;
-}
 
 .my-posts-add-btn {
-  border: 2.5px solid black;
+  border: 2.5px solid var(--color-black);
   height: 4rem;
   width: 83%;
   display: flex;
@@ -34,5 +31,5 @@
   justify-content: center;
   align-items: center;
   min-width: 5rem;
-  border-left: 2.5px solid black;
+  border-left: 2.5px solid var(--color-black);
 }
