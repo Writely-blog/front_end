@@ -2,7 +2,7 @@ import React from 'react';
 import './NavBar.css';
 import { useNavigate } from 'react-router-dom';
 import { BiLogIn, BiLogOut } from 'react-icons/bi';
-import { isAuthenticated } from '../../auth';
+import { isAuthenticated, endSession } from '../../auth';
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -16,7 +16,14 @@ const NavBar = () => {
         <p onClick={() => navigate('/myPosts')}>MY POSTS</p>
         {isAuthenticated() ? (
           <>
-            <p onClick={() => navigate('/login')}>LOGOUT</p>
+            <p
+              onClick={() => {
+                endSession();
+                navigate('/login');
+              }}
+            >
+              LOGOUT
+            </p>
             <BiLogOut size={35} />
           </>
         ) : (
