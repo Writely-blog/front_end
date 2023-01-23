@@ -16,6 +16,7 @@ const ScrollablePosts = ({ data, isEditVersion }) => {
           return (
             <OnePost
               key={post.id}
+              post_id={post.id}
               title={post.title}
               context={post.context}
               likes_count={post.likes_count}

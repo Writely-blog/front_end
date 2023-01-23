@@ -129,7 +129,7 @@ const CreateOrEditPost = ({ create }) => {
                 <>
                   <div className='onepost-right-btn create-edit-onepost-btns'>
                     <p onClick={() => handleEditPost(post_id, title, context)}>
-                      SAVE EDIT
+                      SAVE
                     </p>
                   </div>
                 </>

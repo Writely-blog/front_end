@@ -3,9 +3,18 @@ import './OnePost.css';
 import { FiEdit } from 'react-icons/fi';
 import { MdDeleteForever } from 'react-icons/md';
 import { FcLike } from 'react-icons/fc';
-import { fetchGetUserName } from '../../fetchFunctions';
+import { fetchGetUserName, fetchDeletePost } from '../../fetchFunctions';
+import { useNavigate } from 'react-router-dom';
 
-const OnePost = ({ title, context, likes_count, user_id, isEditVersion }) => {
+const OnePost = ({
+  post_id,
+  title,
+  context,
+  likes_count,
+  user_id,
+  isEditVersion,
+}) => {
+  const navigate = useNavigate();
   const [userName, setUserName] = useState('');
 
   const getUserName = async (id) => {
@@ -31,10 +40,24 @@ const OnePost = ({ title, context, likes_count, user_id, isEditVersion }) => {
             {isEditVersion ? (
               <>
                 <div className='onepost-left-btn'>
-                  <FiEdit />
+                  <FiEdit onClick={() => navigate(`/editPost/${post_id}`)} />
                 </div>
                 <div className='onepost-right-btn'>
-                  <MdDeleteForever />
+                  <MdDeleteForever
+                    onClick={async () => {
+                      if (
+                        window.confirm(
+                          'Are you sure you want to delete this post'
+                        )
+                      ) {
+                        const res = await fetchDeletePost(post_id);
+                        console.log(res);
+                        if (res.statusText === 'OK') {
+                          navigate(0);
+                        }
+                      }
+                    }}
+                  />
                 </div>
               </>
             ) : (

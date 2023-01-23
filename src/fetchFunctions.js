@@ -63,3 +63,11 @@ export const fetchEditPost = async (post_id, input_data) => {
     headers: { 'Content-Type': 'application/json' },
   });
 };
+
+// DELETE
+
+export const fetchDeletePost = async (post_id) => {
+  return await authFetch(`/posts/${post_id}`, {
+    method: 'DELETE',
+  });
+};
