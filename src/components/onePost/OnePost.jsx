@@ -40,29 +40,33 @@ const OnePost = ({
             {isEditVersion ? (
               <>
                 <div className='onepost-left-btn'>
-                  <FiEdit onClick={() => navigate(`/editPost/${post_id}`)} />
+                  <div className='btn-animated'>
+                    <FiEdit onClick={() => navigate(`/editPost/${post_id}`)} />
+                  </div>
                 </div>
                 <div className='onepost-right-btn'>
-                  <MdDeleteForever
-                    onClick={async () => {
-                      if (
-                        window.confirm(
-                          'Are you sure you want to delete this post'
-                        )
-                      ) {
-                        const res = await fetchDeletePost(post_id);
-                        console.log(res);
-                        if (res.statusText === 'OK') {
-                          navigate(0);
+                  <div className='btn-animated'>
+                    <MdDeleteForever
+                      onClick={async () => {
+                        if (
+                          window.confirm(
+                            'Are you sure you want to delete this post'
+                          )
+                        ) {
+                          const res = await fetchDeletePost(post_id);
+                          console.log(res);
+                          if (res.statusText === 'OK') {
+                            navigate(0);
+                          }
                         }
-                      }
-                    }}
-                  />
+                      }}
+                    />
+                  </div>
                 </div>
               </>
             ) : (
               <>
-                <div className='onepost-right-btn'>
+                <div className='onepost-right-btn btn-animated'>
                   <FcLike color='white' size='40px' />
                 </div>
               </>

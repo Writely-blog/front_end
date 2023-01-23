@@ -22,8 +22,9 @@ const Login = () => {
         );
       }
     } catch (error) {
+      console.log(error);
       if (error.hasOwnProperty('response')) {
-        setErrorMesssage(
+        return setErrorMesssage(
           error.response.data.msg
             ? error.response.data.msg
             : error.response.data

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import NavBar from '../navBar/NavBar';
 import OnePost from '../onePost/OnePost';
 import './MyPosts.css';
-import { GrAdd } from 'react-icons/gr';
+import { RiAddLine } from 'react-icons/ri';
+import { MdAddBox } from 'react-icons/md';
 import ScrollablePosts from '../scrollablePosts/ScrollablePosts';
 import { fetchMyPosts } from '../../fetchFunctions';
 import { useNavigate } from 'react-router-dom';
@@ -21,7 +22,7 @@ const MyPosts = () => {
       }
     } catch (error) {
       if (error.hasOwnProperty('response')) {
-        setErrorMesssage(
+        return setErrorMesssage(
           error.response.data.msg
             ? error.response.data.msg
             : error.response.data
@@ -45,8 +46,10 @@ const MyPosts = () => {
         <div className='my-posts-name'>
           <p>MY POSTS</p>
         </div>
-        <div className='my-posts-btn'>
-          <GrAdd size={40} onClick={() => navigate('/createPost')} />
+        <div className='my-posts-btn '>
+          <div className='btn-animated'>
+            <RiAddLine size={45} onClick={() => navigate('/createPost')} />
+          </div>
         </div>
       </div>
       <ScrollablePosts data={data} isEditVersion={true} />

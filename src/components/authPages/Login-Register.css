@@ -101,6 +101,14 @@
   color: var(--color-black);
 }
 
+.form-btn input:hover {
+  color: var(--color-white);
+}
+
+.form-btn input:active {
+  transform: translateY(2px);
+}
+
 .form-footer {
   border-top: 2px solid var(--color-black);
   width: 100%;
@@ -115,4 +123,12 @@
   padding-left: 0.5rem;
   color: var(--color-blue);
   cursor: pointer;
+}
+
+.signup-link:hover {
+  color: var(--color-purple);
+}
+
+.signup-link:active {
+  transform: translateY(2px);
 }
