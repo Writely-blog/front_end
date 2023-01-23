@@ -18,10 +18,14 @@ const MyPosts = () => {
         setData(fetchData.data.posts);
       }
     } catch (error) {
-      console.log(error);
-      setErrorMesssage(
-        error.response.data.msg ? error.response.data.msg : error.response.data
-      );
+      if (error.hasOwnProperty('response')) {
+        setErrorMesssage(
+          error.response.data.msg
+            ? error.response.data.msg
+            : error.response.data
+        );
+      }
+      setErrorMesssage(error.message);
     }
   };
 

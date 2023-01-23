@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './OnePost.css';
 import { FiEdit } from 'react-icons/fi';
 import { MdDeleteForever } from 'react-icons/md';
 import { FcLike } from 'react-icons/fc';
+import { fetchGetUserName } from '../../fetchFunctions';
 
 const OnePost = ({ title, context, likes_count, user_id, isEditVersion }) => {
+  const [userName, setUserName] = useState('');
+
+  const getUserName = async (id) => {
+    await fetchGetUserName(id).then((userName) => setUserName(userName));
+  };
+
+  useEffect(() => {
+    getUserName(user_id);
+  }, [user_id]);
+
   return (
     <div className='onepost-container'>
       <div className='onepost-left-side'>
@@ -41,7 +52,7 @@ const OnePost = ({ title, context, likes_count, user_id, isEditVersion }) => {
         <div className='onepost-footer'>
           <div className='onepost-footer-left'>
             <div className='onepost-username'>
-              <p>{user_id}</p>
+              <p>{userName}</p>
             </div>
             <div className='onepost-like-counter'>
               <p>{likes_count} likes</p>

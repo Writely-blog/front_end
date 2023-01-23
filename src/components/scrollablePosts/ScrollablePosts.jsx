@@ -4,7 +4,6 @@ import OnePost from '../onePost/OnePost';
 
 const ScrollablePosts = ({ data, isEditVersion }) => {
   return (
-    // <div className='scrollable-container'>
     <div
       className={
         isEditVersion

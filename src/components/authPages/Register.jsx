@@ -26,15 +26,18 @@ const Register = () => {
         navigate('/myPosts');
       } else {
         setErrorMesssage(
+          res.response.data.msg ? res.response.data.msg : res.response.data
+        );
+      }
+    } catch (error) {
+      if (error.hasOwnProperty('response')) {
+        setErrorMesssage(
           error.response.data.msg
             ? error.response.data.msg
             : error.response.data
         );
       }
-    } catch (err) {
-      setErrorMesssage(
-        error.response.data.msg ? error.response.data.msg : error.response.data
-      );
+      setErrorMesssage(error.message);
     }
   };
 

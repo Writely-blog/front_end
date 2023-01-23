@@ -27,3 +27,11 @@ export const fetchMyPosts = async () => {
     method: 'GET',
   });
 };
+
+export const fetchGetUserName = async (id) => {
+  const result = await authFetch(`/auth/user/${id}`, {
+    method: 'GET',
+  });
+
+  return result?.data?.user_name;
+};
