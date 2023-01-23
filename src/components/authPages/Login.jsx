@@ -36,7 +36,7 @@ const Login = () => {
 
   return (
     <div className='container'>
-      <div className='title'>
+      <div className='title btn-animated'>
         <p onClick={() => navigate('/')}>WRITELY</p>
       </div>
       <div className='error-container'>

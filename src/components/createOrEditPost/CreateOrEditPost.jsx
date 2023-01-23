@@ -120,17 +120,23 @@ const CreateOrEditPost = ({ create }) => {
               {create ? (
                 <>
                   <div className='onepost-left-btn create-edit-onepost-btns'>
-                    <p onClick={() => handleCreatePost(title, context)}>
-                      CREATE
-                    </p>
+                    <div className='btn-animated'>
+                      <p onClick={() => handleCreatePost(title, context)}>
+                        CREATE
+                      </p>
+                    </div>
                   </div>
                 </>
               ) : (
                 <>
                   <div className='onepost-right-btn create-edit-onepost-btns'>
-                    <p onClick={() => handleEditPost(post_id, title, context)}>
-                      SAVE
-                    </p>
+                    <div className='btn-animated'>
+                      <p
+                        onClick={() => handleEditPost(post_id, title, context)}
+                      >
+                        SAVE
+                      </p>
+                    </div>
                   </div>
                 </>
               )}

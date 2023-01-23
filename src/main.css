@@ -67,6 +67,10 @@ body {
   color: var(--color-blue);
 }
 
+.btn-animated p:hover {
+  color: var(--color-blue);
+}
+
 .btn-animated:active {
   transform: translateY(2px);
 }

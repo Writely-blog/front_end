@@ -2,6 +2,9 @@
   height: 40rem;
   margin-top: 3rem;
 }
+.create-edit-onepost-container input {
+  color: var(--color-black);
+}
 
 .create-edit-title-input {
   width: 90%;
@@ -31,6 +34,7 @@
   font-size: 1.3rem;
   background: transparent;
   white-space: break-spaces;
+  color: var(--color-black);
 }
 
 .create-edit-user-name {
