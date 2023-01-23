@@ -3,6 +3,7 @@ import './OnePost.css';
 import { FiEdit } from 'react-icons/fi';
 import { MdDeleteForever } from 'react-icons/md';
 import { FcLike } from 'react-icons/fc';
+import { AiOutlineLike, AiTwotoneLike } from 'react-icons/ai';
 import { fetchGetUserName, fetchDeletePost } from '../../fetchFunctions';
 import { useNavigate } from 'react-router-dom';
 
@@ -66,8 +67,10 @@ const OnePost = ({
               </>
             ) : (
               <>
-                <div className='onepost-right-btn btn-animated'>
-                  <FcLike color='white' size='40px' />
+                <div className='onepost-right-btn'>
+                  <div className='btn-animated'>
+                    <AiOutlineLike size='40px' />
+                  </div>
                 </div>
               </>
             )}
