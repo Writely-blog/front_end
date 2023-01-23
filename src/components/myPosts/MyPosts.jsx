@@ -8,15 +8,20 @@ import { fetchMyPosts } from '../../fetchFunctions';
 
 const MyPosts = () => {
   const [data, setData] = useState([]);
+  const [errorMessage, setErrorMesssage] = useState('');
 
   const fetchAndSetMyPosts = async () => {
     try {
       const fetchData = await fetchMyPosts();
       if (fetchData?.statusText === 'OK') {
+        setErrorMesssage('');
         setData(fetchData.data.posts);
       }
     } catch (error) {
       console.log(error);
+      setErrorMesssage(
+        error.response.data.msg ? error.response.data.msg : error.response.data
+      );
     }
   };
 
@@ -27,6 +32,9 @@ const MyPosts = () => {
   return (
     <div className='main-container'>
       <NavBar />
+      <div className='error-container'>
+        {errorMessage && <p>{errorMessage}</p>}
+      </div>
       <div className='my-posts-add-btn'>
         <div className='my-posts-name'>
           <p>MY POSTS</p>

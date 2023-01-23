@@ -25,10 +25,16 @@ const Register = () => {
         setSession(res.data.token);
         navigate('/myPosts');
       } else {
-        setErrorMesssage(res?.response?.data?.msg);
+        setErrorMesssage(
+          error.response.data.msg
+            ? error.response.data.msg
+            : error.response.data
+        );
       }
     } catch (err) {
-      setErrorMesssage(err?.response?.data?.msg);
+      setErrorMesssage(
+        error.response.data.msg ? error.response.data.msg : error.response.data
+      );
     }
   };
 
