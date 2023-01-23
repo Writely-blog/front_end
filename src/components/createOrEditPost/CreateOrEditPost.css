@@ -1,0 +1,42 @@
+.create-edit-onepost-container {
+  height: 40rem;
+  margin-top: 3rem;
+}
+
+.create-edit-title-input {
+  width: 90%;
+  padding: 0 0 0 2rem;
+}
+
+.title-input {
+  border: none;
+  width: 100%;
+  outline: none;
+  height: 3rem;
+  font-size: 1.3rem;
+  background: transparent;
+}
+
+.create-edit-context-input {
+  width: 90%;
+  padding: 2rem;
+  height: 70%;
+}
+
+.context-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 3rem;
+  font-size: 1.3rem;
+  background: transparent;
+  white-space: break-spaces;
+}
+
+.create-edit-user-name {
+  border: none;
+}
+
+.create-edit-onepost-btns {
+  min-width: 12rem;
+}

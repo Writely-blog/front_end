@@ -58,7 +58,7 @@ const Register = () => {
             <div className='form-inputs'>
               <div>
                 <input
-                  type='username'
+                  type='text'
                   id='username'
                   name='username'
                   placeholder='Username'

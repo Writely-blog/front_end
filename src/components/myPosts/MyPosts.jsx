@@ -5,8 +5,10 @@ import './MyPosts.css';
 import { GrAdd } from 'react-icons/gr';
 import ScrollablePosts from '../scrollablePosts/ScrollablePosts';
 import { fetchMyPosts } from '../../fetchFunctions';
+import { useNavigate } from 'react-router-dom';
 
 const MyPosts = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [errorMessage, setErrorMesssage] = useState('');
 
@@ -44,7 +46,7 @@ const MyPosts = () => {
           <p>MY POSTS</p>
         </div>
         <div className='my-posts-btn'>
-          <GrAdd size={40} />
+          <GrAdd size={40} onClick={() => navigate('/createPost')} />
         </div>
       </div>
       <ScrollablePosts data={data} isEditVersion={true} />

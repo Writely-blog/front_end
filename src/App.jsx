@@ -5,6 +5,7 @@ import Register from './components/authPages/Register';
 import Login from './components/authPages/Login';
 import AllPosts from './components/allPosts/AllPosts';
 import MyPosts from './components/myPosts/MyPosts';
+import CreateOrEditPost from './components/createOrEditPost/CreateOrEditPost';
 import { isAuthenticated } from '../src/auth';
 
 function App() {
@@ -24,6 +25,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <MyPosts />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/createPost'
+            element={
+              <ProtectedRoute>
+                <CreateOrEditPost create={true} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/editPost/:id'
+            element={
+              <ProtectedRoute>
+                <CreateOrEditPost create={false} />
               </ProtectedRoute>
             }
           />
