@@ -55,8 +55,7 @@ const OnePost = ({
                           )
                         ) {
                           const res = await fetchDeletePost(post_id);
-                          console.log(res);
-                          if (res.statusText === 'OK') {
+                          if (res?.data?.post) {
                             navigate(0);
                           }
                         }

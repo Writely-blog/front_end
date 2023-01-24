@@ -18,6 +18,7 @@
   --color-purple: #d8c4f7;
   --color-blue: #6db7fb;
   --color-red: #d80505;
+  --color-darkpurple: #7c44a0;
 
   color-scheme: light dark;
 
@@ -67,11 +68,11 @@ body {
 }
 
 .btn-animated:hover {
-  color: var(--color-blue);
+  color: var(--color-darkpurple);
 }
 
 .btn-animated p:hover {
-  color: var(--color-blue);
+  color: var(--color-darkpurple);
 }
 
 .btn-animated:active {

@@ -20,7 +20,6 @@ const Register = () => {
         password,
         password2,
       });
-      console.log(res);
       if (res?.data?.hasOwnProperty('email', 'token')) {
         setSession(res.data.token);
         navigate('/myPosts');
