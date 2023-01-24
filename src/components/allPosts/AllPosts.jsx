@@ -3,6 +3,7 @@ import NavBar from '../navBar/NavBar';
 import './AllPosts.css';
 import ScrollablePosts from '../scrollablePosts/ScrollablePosts';
 import { fetchAllPosts } from '../../fetchFunctions';
+import Loading from '../loading/Loading';
 
 const AllPosts = () => {
   const [data, setData] = useState([]);
@@ -31,13 +32,19 @@ const AllPosts = () => {
     fetchAndSetAllPosts();
   }, []);
 
+  console.log(data.length !== 0 ? 1 : 2);
+
   return (
     <div className='main-container'>
       <NavBar />
       <div className='error-container'>
         {errorMessage && <p>{errorMessage}</p>}
       </div>
-      <ScrollablePosts data={data} isEditVersion={false} />
+      {data.length !== 0 ? (
+        <ScrollablePosts data={data} isEditVersion={false} />
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };

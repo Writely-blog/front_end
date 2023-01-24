@@ -7,6 +7,7 @@ import { MdAddBox } from 'react-icons/md';
 import ScrollablePosts from '../scrollablePosts/ScrollablePosts';
 import { fetchMyPosts } from '../../fetchFunctions';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../loading/Loading';
 
 const MyPosts = () => {
   const navigate = useNavigate();
@@ -52,7 +53,11 @@ const MyPosts = () => {
           </div>
         </div>
       </div>
-      <ScrollablePosts data={data} isEditVersion={true} />
+      {data.length !== 0 ? (
+        <ScrollablePosts data={data} isEditVersion={true} />
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };

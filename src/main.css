@@ -34,6 +34,10 @@
   margin: 0;
 }
 
+/* * h1 {
+  color: var(--color-black);
+} */
+
 body {
   margin: 0;
   /* height: 100%; */
