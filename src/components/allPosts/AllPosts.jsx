@@ -11,7 +11,7 @@ const AllPosts = () => {
   const fetchAndSetAllPosts = async () => {
     try {
       const fetchData = await fetchAllPosts();
-      console.log(fetchedData);
+      console.log(fetchData);
       if (fetchData?.statusText === 'OK') {
         setErrorMesssage('');
         setData(fetchData.data.posts);
