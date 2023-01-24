@@ -13,10 +13,12 @@ const MyPosts = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [errorMessage, setErrorMesssage] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const fetchAndSetMyPosts = async () => {
     try {
       const fetchData = await fetchMyPosts();
+      setLoading(false);
       if (fetchData?.data?.posts) {
         setErrorMesssage('');
         setData(fetchData.data.posts);
@@ -30,6 +32,7 @@ const MyPosts = () => {
         );
       }
       setErrorMesssage(error.message);
+      setLoading(false);
     }
   };
 
@@ -53,10 +56,10 @@ const MyPosts = () => {
           </div>
         </div>
       </div>
-      {data.length !== 0 ? (
-        <ScrollablePosts data={data} isEditVersion={true} />
-      ) : (
+      {loading ? (
         <Loading />
+      ) : (
+        <ScrollablePosts data={data} isEditVersion={true} />
       )}
     </div>
   );

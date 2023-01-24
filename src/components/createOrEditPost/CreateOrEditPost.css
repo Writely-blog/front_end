@@ -23,11 +23,12 @@
 .create-edit-context-input {
   width: 90%;
   padding: 2rem;
-  height: 70%;
+  height: 60%;
 }
 
 .context-input {
   width: 100%;
+  min-height: 100%;
   border: none;
   outline: none;
   height: 3rem;

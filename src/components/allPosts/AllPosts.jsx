@@ -8,10 +8,12 @@ import Loading from '../loading/Loading';
 const AllPosts = () => {
   const [data, setData] = useState([]);
   const [errorMessage, setErrorMesssage] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const fetchAndSetAllPosts = async () => {
     try {
       const fetchData = await fetchAllPosts();
+      setLoading(false);
       if (fetchData?.data?.posts) {
         setErrorMesssage('');
         setData(fetchData.data.posts);
@@ -25,6 +27,7 @@ const AllPosts = () => {
         );
       }
       setErrorMesssage(error.message);
+      setLoading(false);
     }
   };
 
@@ -40,10 +43,10 @@ const AllPosts = () => {
       <div className='error-container'>
         {errorMessage && <p>{errorMessage}</p>}
       </div>
-      {data.length !== 0 ? (
-        <ScrollablePosts data={data} isEditVersion={false} />
-      ) : (
+      {loading ? (
         <Loading />
+      ) : (
+        <ScrollablePosts data={data} isEditVersion={false} />
       )}
     </div>
   );

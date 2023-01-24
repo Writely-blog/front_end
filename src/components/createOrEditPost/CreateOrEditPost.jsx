@@ -19,11 +19,6 @@ const CreateOrEditPost = ({ create }) => {
   const [title, setTitle] = useState('');
   const [context, setContext] = useState('');
   const [errorMessage, setErrorMesssage] = useState('');
-  const [userName, setUserName] = useState('');
-
-  const getUserName = async (id) => {
-    await fetchGetUserName(id).then((userName) => setUserName(userName));
-  };
 
   const getPostData = async (id) => {
     await fetchOnePost(id).then((res) => {
@@ -38,12 +33,6 @@ const CreateOrEditPost = ({ create }) => {
       getPostData(post_id);
     }, [post_id]);
   }
-
-  const user_id = 2;
-
-  useEffect(() => {
-    getUserName(user_id);
-  }, [user_id]);
 
   const handleCreatePost = async (title, context) => {
     try {
@@ -156,11 +145,7 @@ const CreateOrEditPost = ({ create }) => {
             />
           </div>
           <div className='onepost-footer'>
-            <div className='onepost-footer-left'>
-              <div className='onepost-username create-edit-user-name'>
-                <p>{userName}</p>
-              </div>
-            </div>
+            <div className='onepost-footer-left'></div>
           </div>
         </div>
       </div>
