@@ -1,3 +1,5 @@
+## Installation
+
 ### NPM
 
 1. You can run the application manually via `npm`
